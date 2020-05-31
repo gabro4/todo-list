@@ -29,9 +29,12 @@ addTaskForm.addEventListener('submit', (event) => {
   setTimeout(() => {
     addTask()
       .then((response) => {
-        if (!response.ok) {
-          throw Error('Wystąpił błąd podczas dodawania zadania. Spróbuj ponownie później.')
-        }
+        if (response.status == 400) {
+          throw Error('Nie można dodać zadania bez tytułu. Podaj tytuł zadania i spróbuj ponownie.')
+      }
+      if (!response.ok) {
+        throw Error('Wystąpił błąd podczas dodawania zadania. Spróbuj ponownie później.')
+      }
 
         addTaskMsg.textContent = 'Pomyślnie dodano zadanie.'
         addTaskMsg.classList.add('is-success')

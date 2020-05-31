@@ -2,6 +2,7 @@ const addTaskForm = document.querySelector('#addTaskForm')
 const addTaskTitle = document.querySelector('#addTaskForm #title')
 const addTaskBtn = document.querySelector('#addTaskBtn')
 const addTaskMsg = document.querySelector('#addTaskMsg')
+const addTaskDescription = document.querySelector('#addTaskForm #description')
 
 const addTask = async () => {
   const data = new FormData(addTaskForm)
@@ -35,6 +36,7 @@ addTaskForm.addEventListener('submit', (event) => {
         addTaskMsg.textContent = 'Pomyślnie dodano zadanie.'
         addTaskMsg.classList.add('is-success')
         addTaskTitle.value = ''
+        addTaskDescription.value = ''
       })
       .catch((error) => {
         addTaskMsg.textContent = error.message

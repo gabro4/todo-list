@@ -43,6 +43,9 @@ const listTasks = async () => {
         const description = document.createElement('td')
         description.innerHTML = `<p>${task.description == '' ? 'Brak opisu': task.description}</p>`
 
+        const timestamp = document.createElement('td')
+        timestamp.innerHTML = `<p>${moment(task.Timestamp).format('DD-MM-YYYY')}</p>`
+
         const actions = document.createElement('td')
         actions.classList.add('has-text-right')
         actions.innerHTML = `<button class="button is-small is-primary" id="deleteTask${task.id}" onclick="completeTask('${task.id}');"><span class="icon is-small"><i class="fas fa-check"></i></span></button>`
@@ -51,6 +54,7 @@ const listTasks = async () => {
         const row = document.createElement('tr')
         row.appendChild(title)
         row.appendChild(description)
+        row.appendChild(timestamp)
         row.appendChild(actions)
     
 

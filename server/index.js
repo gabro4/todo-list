@@ -3,6 +3,7 @@ const Koa = require('koa')
 const serve = require('koa-static')
 const logger = require('koa-logger') 
 const favicon = require('koa-favicon')
+require('./store').init()
 
 
 const app = new Koa()
